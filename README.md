@@ -1,6 +1,6 @@
 # **Blog Lucas Dev** 😜📣 
 
-- Projeto em desenvolvimento... ⌛
+- Blog desenvolvido com Node.js, Express, MongoDB e Bootstrap, utilizado para aprender conceitos e como estruturar um back-end.
 
 ## **Tecnologias, linguagens e frameworks utilizados:**
 
