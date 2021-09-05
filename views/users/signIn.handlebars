@@ -1,0 +1,40 @@
+{{#if error}}
+<div class="alert alert-danger alert-dismissible" role="alert">
+    <strong>{{error}}</strong>
+</div>
+{{else}}
+{{/if}}
+<div id="form-signup" class="form-signup">
+    <div class="card px-4 py-4">
+        <form action="/usuarios/login" method="POST" class="needs-validation" novalidate>
+            {{!-- <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> --}}
+            <div class="text-center">
+                <i class="fas fa-terminal mb-4" style="color: #0000ff;"></i>
+                <h1 class="h4 mb-4 fw-normal">Entre na sua conta</h1>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                    required>
+                <label for="email">E-mail</label>
+                <div class="invalid-feedback">
+                    Por favor, informe um e-mail válido.
+                </div>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="password" name="password" placeholder="********"
+                    minlength="6" required>
+                <label for="password">Senha</label>
+                <div class="invalid-feedback">
+                    Por favor, informe uma senha válida com no mínimo 6 caracteres.
+                </div>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-success" type="submit">Entrar</button>
+
+            <div class="text-center mt-4">
+                <span>Ainda não possui conta ? <a href="/usuarios/cadastro">Cadastre-se</a></span>
+            </div>
+        </form>
+    </div>
+</div>

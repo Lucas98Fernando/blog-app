@@ -1,0 +1,87 @@
+<div class="d-flex align-items-center justify-content-between">
+    <h2>Categorias cadastradas</h2>
+    <a href="/admin/categorias/adicionar" class="btn btn-success">
+        <i class="fas fa-plus"></i>
+        Adicionar categoria
+    </a>
+</div>
+
+<div class="table-responsive table-bordered my-3">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Slug</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categories}}
+            <tr>
+                <td scope="row">{{name}}</td>
+                <td scope="row">{{slug}}</td>
+                <td scope="row" class="d-flex align-items-center">
+                    <div>
+                        <a href="/admin/categorias/editar/{{_id}}">
+                            <i class="far fa-edit"></i>
+                        </a>
+                    </div>
+                    <div>
+                        <button class="btn" data-bs-toggle="modal" data-bs-target="#modalDelete"
+                            data-bs-whatever="{{_id}}">
+                            <i class="far fa-trash-alt" style="color: #ff0000;"></i>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            {{else}}
+
+            <tr class="text-center">
+                <td colspan="3" class="py-3">
+                    Você ainda não possui nenhuma categoria cadastrada
+                </td>
+            </tr>
+            <tr class="text-center">
+                <td colspan="3">
+                    <img src="/img/empty-folder.svg" alt="" class="img-fluid">
+                </td>
+            </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Confirmação</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div>
+                    <img src="/img/thinking.svg" alt="Decisão" class="img-fluid">
+                </div>
+                <div>
+                    Você tem certeza que deseja excluir essa categoria?
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form action="/admin/categorias/excluir" method="POST">
+                    <input type="hidden" id="idDelete" name="id">
+                    <button class="btn btn-danger">
+                        Excluir
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script para ocultar alert depois de um tempo -->
+<script src="/js/showHideAlert.js"></script>
+
+<!-- Script para passar os dados para o modal e realizar a exclusão de algum dado -->
+<script src="/js/passDataToModal.js"></script>

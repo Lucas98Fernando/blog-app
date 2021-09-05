@@ -1,0 +1,71 @@
+<div class="card rounded-xl">
+    <div class="card-header py-3 d-flex align-items-center justify-content-between">
+        <h3 class="pb-0 mb-0">
+            Editar postagem
+        </h3>
+        <a href="/admin/postagens" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i>
+            Voltar
+        </a>
+    </div>
+    {{#each erros}}
+    <div class="alert alert-danger" role="alert">
+        <strong>{{message}}</strong>
+    </div>
+    {{else}}
+    {{/each}}
+    <div class="card-body">
+        <form action="/admin/postagens/editando" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" id="id" name="id" value="{{posts._id}}">
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Título</label>
+                <input id="title" name="title" type="text" class="form-control rounded-4" placeholder="Informe o título"
+                    value="{{posts.title}}" required>
+                <div class="invalid-feedback">
+                    Por favor, informe um título válido para a postagem.
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <input id="slug" name="slug" type="text" class="form-control rounded-4" placeholder="Informe o slug"
+                    value="{{posts.slug}}" required>
+                <div class="invalid-feedback">
+                    Por favor, informe um slug válido para a postagem.
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="description" class="form-label">Descrição</label>
+                <input id="description" name="description" type="text" class="form-control rounded-4"
+                    placeholder="Informe a descrição" value="{{posts.description}}" required>
+                <div class="invalid-feedback">
+                    Por favor, informe uma descrição válida para a postagem.
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="content" class="form-label">Conteúdo</label>
+                <textarea id="content" name="content" class="form-control rounded-4" placeholder="Informe o conteúdo" rows="5"
+                    required>{{posts.content}}</textarea>
+                <div class="invalid-feedback">
+                    Por favor, informe um conteúdo válido para a postagem.
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="category">Atualizar categoria</label>
+                <select id="category" name="category" class="form-select" aria-label="Seleção de categorias" required>
+                    {{#each categories}}
+                    <option value="{{_id}}">{{name}}</option>
+                    {{else}}
+                    <option value="0">Nenhuma categoria cadastrada</option>
+                    {{/each}}
+                </select>
+                <input type="hidden" name="categorySelected" id="categorySelected" value="{{posts.category}}">
+            </div>
+            <button type="submit" class="btn btn-success py-2 rounded-6">Atualizar postagem</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var categoria = document.getElementById("categorySelected").value
+    document.getElementById("category").value = categoria
+</script>

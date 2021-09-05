@@ -1,0 +1,38 @@
+<div class="card rounded-xl">
+    <div class="card-header py-3 d-flex align-items-center justify-content-between">
+        <h3 class="pb-0 mb-0">
+            Nova categoria
+        </h3>
+        <a href="/admin/categorias" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i>
+            Voltar
+        </a>
+    </div>
+    {{#each erros}}
+    <div class="alert alert-danger" role="alert">
+        <strong>{{message}}</strong>
+    </div>
+    {{else}}
+    {{/each}}
+    <div class="card-body">
+        <form action="/admin/categorias/nova" method="POST" class="needs-validation" novalidate>
+            <div class="form-group mb-3">
+                <label for="name" class="form-label">Nome</label>
+                <input id="name" name="name" type="text" class="form-control rounded-4"
+                    placeholder="Informe o nome da categoria" minlength="3" maxlength="50" required>
+                <div class="invalid-feedback">
+                    Por favor, informe um nome válido para a categoria.
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="slug" class="form-label">Slug</label>
+                <input id="slug" name="slug" type="text" class="form-control rounded-4"
+                    placeholder="Informe o slug da categoria" maxlength="50" required>
+                <div class="invalid-feedback">
+                    Por favor, informe um slug válido para a categoria.
+                </div>
+            </div>
+            <button class="btn btn-success py-2 rounded-6">Criar categoria</button>
+        </form>
+    </div>
+</div>

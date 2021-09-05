@@ -1,0 +1,23 @@
+<h3 class="mb-3">Todas as postagens</h3>
+<div class="row">
+    {{#each posts}}
+    <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">{{category.name}}</strong>
+                <h4 class="mb-2">{{title}}</h4>
+                <p class="card-text text-muted mb-auto">{{description}}</p>
+                <a href="/postagens/{{slug}}" class="stretched-link">Continuar lendo</a>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+                <img class="bd-placeholder-img" width="200" height="250"
+                    src="https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+                    alt="">
+
+            </div>
+        </div>
+    </div>
+    {{else}}
+</div>
+<p class="text-muted">Ainda não existem postagens cadastradas.</p>
+{{/each}}

@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between align-items-center">
+    <h4 class="text-muted mb-4">Resultados encontrados para a categoria: <span
+            class="text-dark">{{categories.name}}</span>
+    </h4>
+    <a href="/categorias" class="btn btn-secondary">
+        <i class="fas fa-arrow-left"></i>
+        Voltar
+    </a>
+</div>
+{{#each posts}}
+<div class="col-md-6">
+    <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{title}}</h3>
+            <div class="mb-1 text-muted">{{date}}</div>
+            <p class="card-text mb-auto">{{description}}</p>
+            <a href="/postagens/{{slug}}" class="stretched-link">Continuar lendo</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+            <img class="bd-placeholder-img" width="200" height="250"
+                src="https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+                alt="">
+
+        </div>
+    </div>
+</div>
+{{else}}
+<p class="text-muted mb-4">Nenhuma postagem encontrada
+</p>
+{{/each}}

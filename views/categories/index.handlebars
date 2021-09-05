@@ -1,0 +1,11 @@
+<h3 class="mb-3">Categorias</h3>
+<ul class="list-group">
+    {{#each categories}}
+    <a href="/categorias/{{slug}}">
+        <li class="list-group-item list-group-item-action">{{name}}</li>
+    </a>
+    {{else}}
+    <p class="text-muted">Ainda não existem categorias cadastradas.</p>
+    <img src="img/categories.svg" alt="Não existem categorias cadastradas" class="img-fluid">
+    {{/each}}
+</ul>

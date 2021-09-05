@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            {{!-- <img src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg" alt="Logo" width="30"
+                height="24" class="d-inline-block align-text-top"> --}}
+            <i class="fas fa-terminal" style="color: #0000ff;"></i>
+            &nbsp; Blog Lucas Dev
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Blog Lucas Dev</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav align-items-center ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/categorias">Categorias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/postagens">Postagens</a>
+                    </li>
+                    {{#if user}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="far fa-user"></i>
+                            {{#each user}}
+                            {{name}}
+                            {{else}}
+                            {{/each}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li>
+                                <a class="dropdown-item text-muted" href="/admin/categorias">Gerenciar categorias
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item text-muted" href="/admin/postagens">Gerenciar postagens
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/usuarios/logout"> <button
+                                        class="btn btn-danger w-100 px-3" type="button">
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Sair
+                                    </button>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li class="nav-link">
+                        <a href="/usuarios/login">
+                            <button class="btn btn-success px-3" type="button">Entrar</button>
+                        </a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
